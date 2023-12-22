@@ -1,4 +1,4 @@
-﻿namespace NKrypt_Dot
+﻿namespace KDotCypher
 {
     public class NKDot
     {
@@ -11,9 +11,9 @@
 
         #region Public_Methods
 
-        public void SayHelllo()
+        public string SayHelllo()
         {
-            Console.WriteLine("Holis");
+                return "Holis";
         }
 
         #endregion
