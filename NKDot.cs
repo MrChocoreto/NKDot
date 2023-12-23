@@ -13,7 +13,11 @@
 
         public string SayHelllo()
         {
+<<<<<<< HEAD
             return "Holis";
+=======
+                return "Holis";
+>>>>>>> 9f5828efc98be554dad0bea1790dbf2127cb27b9
         }
 
         #endregion
