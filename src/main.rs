@@ -4,16 +4,15 @@ mod keys;
 use crate::anti_atoms::anti_fusion;
 
 fn main() {
-    println!("Hello, world!");
     nkrypt();
 }
 
 
 
 fn _dkrypt(){
-    anti_fusion::backward()
+    anti_fusion::_backward()
 }
 
 fn nkrypt(){
-    anti_fusion::forward()
+    anti_fusion::forward(String::from("Hello, world!"))
 }

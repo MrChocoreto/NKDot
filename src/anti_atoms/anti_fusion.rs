@@ -1,10 +1,13 @@
 use crate::anti_atoms::anti_mg;
+// use crate::anti_atoms::anti_fe;
 
-pub fn backward(){
-    anti_mg::natex()
+pub fn _backward(){
+    anti_mg::_revex();
+    // anti_fe::_revex();
 }
 
 
-pub fn forward(){
-    anti_mg::revex()
+pub fn forward(data:String){
+    anti_mg::natex(data);
+    // anti_fe::_natex(String::from(""));
 }
