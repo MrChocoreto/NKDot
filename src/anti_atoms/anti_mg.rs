@@ -1,28 +1,45 @@
-use std::vec;
+use std::{char, vec};
 use std::collections::HashMap;
 
 // <<---------Cons---------->>
 
 // <----SBK Dictionary---->
-fn get_dictionary() -> HashMap<i32, &'static str> {
+// sbjp => short base of japanese pairs
+fn get_sbjp_dic() -> HashMap<char, &'static str> {
     let mut dictionary = HashMap::new();
-    dictionary.insert(0, "zr");
-    dictionary.insert(1, "ih");
-    dictionary.insert(2, "ni");
-    dictionary.insert(3, "sa");
-    dictionary.insert(4, "on");
-    dictionary.insert(5, "og");
-    dictionary.insert(6, "rk");
-    dictionary.insert(7, "na");
-    dictionary.insert(8, "hc");
-    dictionary.insert(9, "ky");
-    dictionary.insert(10, "ju");
-    dictionary.insert(11, "ji");
-    // dictionary.insert(72, "pp");
-    // dictionary.insert(111, "oo");
-    // dictionary.insert(108, "tt");
+    dictionary.insert('a', "zr");
+    dictionary.insert('s', "ih");
+    dictionary.insert('d', "ni");
+    dictionary.insert('s', "sa");
+    dictionary.insert('d', "on");
+    dictionary.insert('d', "og");
+    dictionary.insert('d', "rk");
+    dictionary.insert('d', "na");
+    dictionary.insert('d', "hc");
+    dictionary.insert('d', "ky");
+    dictionary.insert('d', "ju");
+    dictionary.insert('d', "ji");
     dictionary
 }
+
+// sbj => short base of japanese
+fn get_sbj_dic()->HashMap<i32,char>{
+    let mut dic = HashMap::new();
+    dic.insert(0, '0');
+    dic.insert(1, '1');
+    dic.insert(2, '2');
+    dic.insert(3, '3');
+    dic.insert(4, '4');
+    dic.insert(5, '5');
+    dic.insert(6, 'k');
+    dic.insert(7, 'n');
+    dic.insert(8, 'h');
+    dic.insert(9, 'y');
+    dic.insert(10, 'u');
+    dic.insert(11, 'j');
+    dic
+}
+
 
 
 
@@ -36,29 +53,28 @@ pub fn natex(data:String){
     for item in data.chars() {
         vec_data.push(item as i32);
     }
-    let _new_data = sbj(vec_data);
+    let _new_data = sbjp(vec_data);
 }
 
 
-fn sbj(data:Vec<i32>)->Vec<String>{
-    // Crear un HashMap con valores predefinidos
-    let dic_sbj: HashMap<i32, &str> = get_dictionary();
-    let mut result:Vec<String>= vec![];
+fn sbjp(data:Vec<i32>)->Vec<String>{
+    let mut result:Vec<String> = vec![];
     
     for item in data.clone(){
         let num = sbj_value(item);
-        println!("el dato es: {}", dic_sbj[&item]);
-        
-        result.push(String::from(dic_sbj[&item]))
+        result.push(num); 
     }
     result
 }
 
 
-fn sbj_value(number:i32)-> i32{
-
-    
-    1
+fn sbj_value(number:i32)-> String{
+    // Crear un HashMap con valores predefinidos
+    let dic_sbj: HashMap<char, &str> = get_sbjp_dic();
+    println!("el dato es: {}", dic_sbj[&'a']); 
+    // result.push(String::from(dic_sbj[&_num]));
+ 
+    String::from(number.to_string())
 }
 
 
