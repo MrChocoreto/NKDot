@@ -1,7 +1,6 @@
 mod anti_atoms;
-mod keys;
 
-use crate::anti_atoms::anti_fusion;
+use crate::anti_atoms::{anti_mg, anti_fe};
 
 fn main() {
     nkrypt();
@@ -10,9 +9,10 @@ fn main() {
 
 
 fn _dkrypt(){
-    anti_fusion::_backward()
+    anti_mg::_revex();
 }
 
 fn nkrypt(){
-    anti_fusion::forward(String::from("Hello, world!"))
+    
+    anti_mg::natex(String::from("Hello, world!"))
 }
