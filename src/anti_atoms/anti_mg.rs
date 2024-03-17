@@ -1,42 +1,24 @@
-use std::{char, vec};
+use std::vec;
 use std::collections::HashMap;
 
 // <<---------Cons---------->>
 
 // <----SBK Dictionary---->
-// sbjp => short base of japanese pairs
-fn get_sbjp_dic() -> HashMap<char, &'static str> {
-    let mut dictionary = HashMap::new();
-    dictionary.insert('a', "zr");
-    dictionary.insert('s', "ih");
-    dictionary.insert('d', "ni");
-    dictionary.insert('s', "sa");
-    dictionary.insert('d', "on");
-    dictionary.insert('d', "og");
-    dictionary.insert('d', "rk");
-    dictionary.insert('d', "na");
-    dictionary.insert('d', "hc");
-    dictionary.insert('d', "ky");
-    dictionary.insert('d', "ju");
-    dictionary.insert('d', "ji");
-    dictionary
-}
-
+//
 // sbj => short base of japanese
-fn get_sbj_dic()->HashMap<i32,char>{
+fn get_sbj_dic()->HashMap<i32,&'static str>{
     let mut dic = HashMap::new();
-    dic.insert(0, '0');
-    dic.insert(1, '1');
-    dic.insert(2, '2');
-    dic.insert(3, '3');
-    dic.insert(4, '4');
-    dic.insert(5, '5');
-    dic.insert(6, 'k');
-    dic.insert(7, 'n');
-    dic.insert(8, 'h');
-    dic.insert(9, 'y');
-    dic.insert(10, 'u');
-    dic.insert(11, 'j');
+    dic.insert(0, "zr");
+    dic.insert(1, "ih");
+    dic.insert(2, "ni");
+    dic.insert(3, "sa");
+    dic.insert(4, "on");
+    dic.insert(5, "og");
+    dic.insert(6, "rk");
+    dic.insert(7, "na");
+    dic.insert(8, "hc");
+    dic.insert(9, "ky");
+    dic.insert(10, "ju");
     dic
 }
 
@@ -50,9 +32,15 @@ fn get_sbj_dic()->HashMap<i32,char>{
 //natex => natural expression
 pub fn natex(data:String){
     let mut vec_data:Vec<i32> = vec![];
+    //recorre la data para convertirlo en un arreglo de datos
+    //de esta manera trabajar individualemente cada dato por separado
     for item in data.chars() {
         vec_data.push(item as i32);
     }
+
+    //creo un arreglo nuevo de objetos de tipo String en base a 
+    //los valores ascii de cada dato dado, para preservar el valores
+    //y poder reestructurar cada dato
     let _new_data = sbjp(vec_data);
 }
 
@@ -70,10 +58,10 @@ fn sbjp(data:Vec<i32>)->Vec<String>{
 
 fn sbj_value(number:i32)-> String{
     // Crear un HashMap con valores predefinidos
-    let dic_sbj: HashMap<char, &str> = get_sbjp_dic();
-    println!("el dato es: {}", dic_sbj[&'a']); 
-    // result.push(String::from(dic_sbj[&_num]));
- 
+    let _dic_sbj:HashMap<i32,&'static str> = get_sbj_dic();
+    // if number % 2 == 0 {
+    //     println!("el dato es: {}", number.to_string()); 
+    // }
     String::from(number.to_string())
 }
 
